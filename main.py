@@ -13,7 +13,11 @@ for index, row in df.iterrows():
     pdf.set_font(family="Times", style="B", size=24)
     pdf.set_text_color(100,100,100)# valori pt RGB, de la 0 la 254
     pdf.cell(w=0, h=12, txt=row["Topic"], align="L", ln=1)
-    pdf.line(10, 21, 200, 21)#valori pt x1,y1,x2,y2, x-distanta in mm pe largimea,
+
+    for y in range(20, 298, 10):  # 10 e pasul
+        pdf.line(10, y, 200, y)
+
+    #pdf.line(10, 21, 200, 21)#valori pt x1,y1,x2,y2, x-distanta in mm pe largimea,
     # iar y-inaltimea fata de marginile documentului, largimea e de 210mm pt A4
     # inaltimea e 298mm pt A4
 
@@ -33,6 +37,8 @@ for index, row in df.iterrows():
         pdf.set_text_color(180, 180, 180)
         pdf.cell(w=0, h=10, txt=row["Topic"], align="R")
 
+        for y in range(20, 298, 10): #10 e pasul
+            pdf.line(10, y, 200, y)
 pdf.output("output.pdf")
 
 """
