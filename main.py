@@ -14,6 +14,9 @@ for index, row in df.iterrows():
     pdf.line(10, 21, 200, 21)#valori pt x1,y1,x2,y2, x-distanta in mm pe largimea,
     # iar y-inaltimea fata de marginile documentului, largimea e de 210 pt A4
 
+    for i in range(row["Pages"] - 1):
+        pdf.add_page()
+
 pdf.output("output.pdf")
 
 """
